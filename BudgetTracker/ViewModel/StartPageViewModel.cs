@@ -11,7 +11,7 @@ using BudgetTracker.View;
 
 namespace BudgetTracker.ViewModel
 {
-    class StartPageViewModel : INotifyPropertyChanged
+    public partial class StartPageViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
 

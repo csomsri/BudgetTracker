@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid>
+    <Grid x:Name="TrackGrid">
         <!-- Image Background here -->
         <Image Source="/Assets/BankImage.png"
                Stretch="Fill"/>
@@ -137,6 +137,8 @@
 
             <!--Exit Button (X)-->
             <Button
+                x:Name="ExitButton"
+                Command="{Binding GoBackCommand}"
                 Grid.Row="0"
                 Grid.Column="0"
                 Width="100"

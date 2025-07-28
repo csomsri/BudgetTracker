@@ -130,8 +130,8 @@
                 </Button.Content>
                 <Button.Background>
                     <ImageBrush 
-                ImageSource="/Assets/WoodenSign.png"
-                Stretch="Fill"/>
+                    ImageSource="/Assets/WoodenSign.png"
+                    Stretch="Fill"/>
 
                 </Button.Background>
 

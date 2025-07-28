@@ -12,6 +12,7 @@ using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
+using BudgetTracker.ViewModel;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -23,8 +24,18 @@ namespace BudgetTracker.View;
 /// </summary>
 public sealed partial class TrackPage : Page
 {
+    StartPageViewModel ViewModel { get; } = new StartPageViewModel();
     public TrackPage()
     {
         InitializeComponent();
+        // TrackGrid.DataContext = ViewModel;
+        var vm = new TrackPageViewModel();
+        this.DataContext = vm;
+
+        vm.RequestGoBack += () =>
+        {
+            if (Frame.CanGoBack)
+                Frame.GoBack();
+        };
     }
 }
