@@ -42,6 +42,116 @@
                 </Border.Background>
 
             </Border>
+
+            <!--Display Budget-->
+            <Border Grid.Column="2" Grid.ColumnSpan="3"
+                    Grid.Row="1">
+                <TextBlock 
+                    FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
+                    Text=" Text {Binding userBudget}">
+                    
+                </TextBlock>
+            </Border>
+            
+            <!--Category-->
+            <!-- Put this : SelectionChanged="ComboBoxChanged"-->
+            <Border Grid.Column="2" Grid.ColumnSpan="3"
+                    Grid.Row="2">
+                <ComboBox
+                    FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
+                    PlaceholderText="Select a Category"
+                    
+                    Width="415"
+                    >
+                    <ComboBoxItem Content="Food (Eating Out)"/>
+                    <ComboBoxItem Content="Food (Groceries)"/>
+                    <ComboBoxItem Content="House Supplies"/>
+                    <ComboBoxItem Content="Entertainment"/>
+                    <ComboBoxItem Content="Education"/>
+                    <ComboBoxItem Content="Others"/>
+
+                </ComboBox>
+                
+                
+            </Border>
+            
+            
+
+            <!--MoneySpent-->
+            <Border Grid.Column="2" Grid.ColumnSpan="3"
+                    Grid.Row="3">
+                <TextBox
+                    FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
+                    PlaceholderText="00.00"
+                    FontSize="50"
+                    TextAlignment="Center"
+                    Height="150"
+                    Width="415"
+                    >
+                    <TextBox.Header>
+                        <TextBlock FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
+                                   Text="Enter The Price"
+                                   TextAlignment="Left"
+                                   FontSize="15"
+                                   Width="415"
+                                   Foreground="Gold"/>
+                    </TextBox.Header>
+                </TextBox>
+            </Border>
+
+            <!--Date-->
+            <!-- DateChanged="DatePicked" Add this -->
+            <Border Grid.Column="2" Grid.ColumnSpan="3"
+                    Grid.Row="4">
+                <CalendarDatePicker
+                    x:Name="MyDatePicker"
+                    Width="415"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    PlaceholderText="Select a date"
+                    FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
+                >
+                    <CalendarDatePicker.Header>
+                        <TextBlock Text="Purchase Date"
+                                   Foreground="Gold"
+                                   FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"/> 
+                    </CalendarDatePicker.Header>
+                </CalendarDatePicker>
+            </Border>
+            
+            <!--Submit Button-->
+            <Button 
+                Content="Submit"
+                FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
+                Grid.Row="5"
+                Grid.Column="2"
+                Grid.ColumnSpan="3"
+                Width="410"
+                Background="DarkRed"
+                BorderBrush="DimGray"
+                BorderThickness="2"
+                Foreground="Gold"
+                >
+               
+            </Button>
+
+            <!--Exit Button (X)-->
+            <Button
+                Grid.Row="0"
+                Grid.Column="0"
+                Width="100"
+                Height="50"
+                FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
+                Content="Back"
+                VerticalAlignment="Top"
+                FontSize="10"
+                Background="DarkRed"
+                BorderBrush="DimGray"
+                BorderThickness="2"
+                Foreground="Gold"
+                >
+            </Button>
+            
         </Grid>
     </Grid>
 </Page>
