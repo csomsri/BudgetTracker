@@ -35,5 +35,11 @@ public sealed partial class StartPage : Page
         {
             Frame.Navigate(typeof(TrackPage));
         };
+
+        ViewModel.RequestNavigationToAnalyze += () =>
+        {
+            Frame.Navigate(typeof(AnalyzePage));
+        };
+
     }
 }

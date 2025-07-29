@@ -8,7 +8,67 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid>
+    <Grid x:Name="AnalyzeGrid">
+        <Image Source="/Assets/SplitPathGrassy.png"
+           Stretch="Fill"/>
 
+
+        <Grid Background="Transparent" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+
+
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+
+            </Grid.RowDefinitions>
+
+
+            <Border Grid.Column="0" Grid.ColumnSpan="7"
+                    Grid.Row="0" Grid.RowSpan="7"
+                    Height="800" Width="800"
+                    Opacity="1">    
+                <Border.Background>
+                    <ImageBrush ImageSource="/Assets/Scrolll.png"/>
+                </Border.Background>
+
+            </Border>
+            
+            <!-- Exit Button -->
+
+            <!--Exit Button (X)-->
+            <Button
+                x:Name="ExitButton"
+                Command="{Binding GoBackCommand}"
+                Grid.Row="0"
+                Grid.Column="0"
+                Width="100"
+                Height="50"
+                FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
+                Content="Back"
+                VerticalAlignment="Top"
+                FontSize="10"
+                Background="DarkRed"
+                BorderBrush="DimGray"
+                BorderThickness="2"
+                Foreground="Gold"
+                    >
+            </Button>
+
+        </Grid>
     </Grid>
 </Page>

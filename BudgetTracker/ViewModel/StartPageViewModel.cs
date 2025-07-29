@@ -21,19 +21,35 @@ namespace BudgetTracker.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        
 
+        // Go To Track
         public ICommand GoToTrackCommand { get; }
 
         public event Action? RequestNavigationToTrack;
-
-        public StartPageViewModel()
-        {
-            GoToTrackCommand = new RelayCommand(OnTrack);
-        }
-
         private void OnTrack()
         {
             RequestNavigationToTrack?.Invoke();
         }
+
+        // Go To Analyze
+        public ICommand GoToAnalyzeCommand { get; }
+
+        public event Action? RequestNavigationToAnalyze;
+
+        private void OnAnalyze()
+        {
+            RequestNavigationToAnalyze?.Invoke();
+        }
+
+        public StartPageViewModel()
+        {
+            GoToTrackCommand = new RelayCommand(OnTrack);
+            GoToAnalyzeCommand = new RelayCommand(OnAnalyze);
+        }
+
+        
+
+        
     }
 }

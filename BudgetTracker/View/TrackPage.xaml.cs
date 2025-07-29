@@ -24,7 +24,7 @@ namespace BudgetTracker.View;
 /// </summary>
 public sealed partial class TrackPage : Page
 {
-    StartPageViewModel ViewModel { get; } = new StartPageViewModel();
+    
     public TrackPage()
     {
         InitializeComponent();
