@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BudgetTracker.Model
 {
-    class UserData
+    public class UserData
     {
         // Id For the user
         public int Id { get; set; }
@@ -15,13 +15,13 @@ namespace BudgetTracker.Model
         public decimal UserBalance { get; set; }
 
         // Navigation and Foreign Keys
-        public int UserID { get; set; }
+        public int UserId { get; set; }
 
-        public User User { get; set; } = new User();
+        public User User { get; set; } = null!;
 
         // Connection To Expenses
 
-        public List<Expenses> Expenses { get; set; } = new List<Expenses>();
+        public List<Expenses> Expenses { get; set; } = [];
 
 
 

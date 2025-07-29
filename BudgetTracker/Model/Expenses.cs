@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BudgetTracker.Model
 {
-    class Expenses
+    public class Expenses
     {
         // Id for the table
         public int Id { get; set; }
@@ -21,9 +21,9 @@ namespace BudgetTracker.Model
 
         // Foreign and Navigation
 
-        public int UserID { get; set; }
+        public int UserDataId { get; set; }
 
-        public UserData UserData { get; set; } = new UserData();
+        public UserData UserData { get; set; } = null!;
         
     }
 }
