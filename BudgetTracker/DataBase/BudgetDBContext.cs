@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -23,6 +25,7 @@ namespace BudgetTracker.DataBase
             var localFolder = Windows.Storage.ApplicationData.Current.LocalFolder.Path; 
             
             optionsBuilder.UseSqlite($"Data Source={System.IO.Path.Combine(localFolder, "budget.db")}");
+            Debug.WriteLine($"DB Path: {Path.Combine(localFolder, "budget.db")}");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

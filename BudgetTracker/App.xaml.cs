@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using BudgetTracker.DataBase;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -35,6 +36,8 @@ namespace BudgetTracker
         public App()
         {
             InitializeComponent();
+            using var db = new BudgetDBContext();
+            db.Database.EnsureCreated();
         }
 
         /// <summary>
