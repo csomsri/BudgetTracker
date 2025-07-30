@@ -60,7 +60,8 @@
             </Border>
 
             <Button x:Name="analyzeButton"  
-                    Command="{Binding GoToAnalyzeCommand}"
+                    Command="{x:Bind ViewModel.GoToNextPageCommand}"
+                    CommandParameter="AnalyzePage"
                     Grid.Column="3"
                     Grid.RowSpan="3"
                     Grid.Row="3"                    
@@ -99,7 +100,8 @@
 
             <Button 
                 x:Name="trackButton"
-                Command="{Binding GoToTrackCommand}"
+                Command="{x:Bind ViewModel.GoToNextPageCommand}"
+                CommandParameter="TrackPage"
                 Grid.Column="1"
                 Grid.RowSpan="3"
                 Grid.Row="3"  
@@ -154,22 +156,22 @@
                     Stretch="Fill"/>
 
             <TextBox
-                Grid.Column="1" Grid.ColumnSpan="4"
-                Grid.Row="2" Grid.RowSpan="2"
-                Width="500" Height="100"
-                PlaceholderText="Username"
-                PlaceholderForeground="Black"
-                TextAlignment="Center"
-                VerticalContentAlignment="Center"
-                HorizontalAlignment="Center"
-                FontSize="50"
-                FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
-                Foreground="Black"
-                BorderBrush="Transparent"
-                RenderTransformOrigin="0,0">
+                    Text="{x:Bind ViewModel.Username, Mode=TwoWay}"
+                    Grid.Column="1" Grid.ColumnSpan="4"
+                    Grid.Row="2" Grid.RowSpan="2"
+                    Width="500" Height="100"
+                    PlaceholderText="Username"
+                    PlaceholderForeground="Black"
+                    TextAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    HorizontalAlignment="Center"
+                    FontSize="50"
+                    FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
+                    Foreground="Black"
+                    BorderBrush="Transparent"
+                    RenderTransformOrigin="0,0">    
                 <TextBox.RenderTransform>
                     <TranslateTransform X="62" Y="6"/>
-                 
                 </TextBox.RenderTransform>
             </TextBox>
         </Grid>

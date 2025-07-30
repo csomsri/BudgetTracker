@@ -41,5 +41,18 @@ public sealed partial class StartPage : Page
             Frame.Navigate(typeof(AnalyzePage));
         };
 
+        ViewModel.RequestNavigationToNewUser += () =>
+        {
+            try
+            {
+                Frame.Navigate(typeof(NewUserPage));
+
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Error navigating to NewUserPage: {ex}");
+                System.Diagnostics.Debug.WriteLine("Unable to go to NewUserPage");
+            }
+        };
     }
 }
