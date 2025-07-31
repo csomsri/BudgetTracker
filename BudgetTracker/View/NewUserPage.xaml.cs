@@ -30,12 +30,12 @@ namespace BudgetTracker.View
             var vm = new NewUserPageViewModel();
             this.DataContext = vm;
 
-            // Go back
-            //vm.RequestGoBack += () =>
-            //{
-            //    if (Frame.CanGoBack)
-            //        Frame.GoBack();
-            //};
+          
+            vm.RequestGoBack += () =>
+            {
+                if (Frame.CanGoBack)
+                    Frame.GoBack();
+            };
         }
     }
 }

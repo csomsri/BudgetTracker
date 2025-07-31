@@ -9,11 +9,10 @@
     mc:Ignorable="d">
 
     <Grid x:Name="NewUserGrid">
-        <Image Source="/Assets/SplitPathGrassy.png"
-               Stretch="Fill"/>
+        
 
 
-        <Grid Background="Transparent" >
+        <Grid Background="LightBlue" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -36,6 +35,100 @@
                 <RowDefinition Height="*"/>
 
             </Grid.RowDefinitions>
+            <Button
+                x:Name="ExitButton"
+                Command="{Binding GoBackCommand}"
+                Grid.Row="0"
+                Grid.Column="0"
+                Width="100"
+                Height="50"
+                FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
+                Content="Back"
+                VerticalAlignment="Top"
+                FontSize="10"
+                Background="DarkRed"
+                BorderBrush="DimGray"
+                BorderThickness="2"
+                Foreground="Gold"
+                >
+            </Button>
+
+            <Border
+                Height="685" Width="700" 
+                Grid.Column="1" Grid.ColumnSpan="5"
+                Grid.Row="1" Grid.RowSpan="5"
+                CornerRadius="50">
+                <Border.Background
+                    >
+                    <SolidColorBrush Color="White"
+                                     Opacity="0.5"/>
+                    
+                </Border.Background>
+                
+            </Border>
+
+            <TextBlock Text="The Username that you put does&#x0a;not exist as an account&#x0a;please create one"
+                       FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
+                       FontSize="18"
+                       Grid.Column="1"
+                       Grid.ColumnSpan="5"
+                       Grid.Row="6" Grid.RowSpan="3"
+                       Height="400" Width="700"
+                       TextAlignment="Center"
+                       Foreground="Black"        
+                    
+                       >
+                
+            </TextBlock>
+
+            <TextBlock Text="Login"
+                       FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
+                       FontSize="45"
+                       Grid.Column="2" Grid.ColumnSpan="3"
+                       Grid.Row="0" Grid.RowSpan="3"
+                       VerticalAlignment="Center"
+                       TextAlignment="Center"
+                       Foreground="Black"
+                       />
+
+            <!-- Enter Username -->
+            <TextBox
+
+                FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
+                Grid.Column="2" Grid.ColumnSpan="3"
+                Grid.Row="2" Grid.RowSpan="1"
+                Width="400" Height="100"
+                Background="Azure"
+                CornerRadius="15"
+               
+                VerticalContentAlignment="Center"
+                TextAlignment="Center"
+                FontSize="35" 
+               
+                Foreground="Black"
+                >
+              
+                
+
+                <TextBox.Header>
+                    <TextBlock Text="Username"
+                               Foreground="Black"
+                               FontSize="20"
+                               />
+                    
+                </TextBox.Header>
+
+               
+                
+            </TextBox>
+
+
+
+            <!-- Enter Budget -->
+            
+            
+            <!-- Submit -->
+
         </Grid>
     </Grid>
 </Page>
