@@ -7,128 +7,125 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
-    <Grid x:Name="NewUserGrid">
-        
-
-
-        <Grid Background="LightBlue" >
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-
-
-            </Grid.ColumnDefinitions>
-
+    
+        <!-- Outer layout -->
+        <Grid Background="LightBlue" Padding="24">
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <!-- Back button row -->
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-
+                <!-- Content -->
             </Grid.RowDefinitions>
+
+            <!-- Back -->
             <Button
-                x:Name="ExitButton"
-                Command="{Binding GoBackCommand}"
-                Grid.Row="0"
-                Grid.Column="0"
-                Width="100"
-                Height="50"
-                FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
-                Content="Back"
-                VerticalAlignment="Top"
-                FontSize="10"
-                Background="DarkRed"
-                BorderBrush="DimGray"
-                BorderThickness="2"
-                Foreground="Gold"
-                >
-            </Button>
+            x:Name="ExitButton"
+            Command="{Binding GoBackCommand}"
+            Content="Back"
+            Width="120"
+            Height="44"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
+            FontSize="12"
+            Background="DarkRed"
+            BorderBrush="DimGray"
+            BorderThickness="2"
+            Foreground="Gold"/>
 
-            <Border
-                Height="685" Width="700" 
-                Grid.Column="1" Grid.ColumnSpan="5"
-                Grid.Row="1" Grid.RowSpan="5"
-                CornerRadius="50">
-                <Border.Background
-                    >
-                    <SolidColorBrush Color="White"
-                                     Opacity="0.5"/>
-                    
+            <!-- Centered card -->
+        <Border Grid.Row="1"
+                    Grid.RowSpan="6"
+                    MaxWidth="720"
+                    MaxHeight="500"
+                    Height="500"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    CornerRadius="24"
+                    Padding="32">
+            <Border.Background>
+                    <SolidColorBrush Color="White" Opacity="0.5"/>
                 </Border.Background>
-                
+
+                <!-- Stack content so it never overlaps -->
+                <StackPanel Spacing="16">
+                    <TextBlock Text="The username you entered does not exist. Please create one."
+                           FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
+                           FontSize="16"
+                           TextWrapping="Wrap"
+                           TextAlignment="Center"
+                           Foreground="Black"/>
+
+                    <TextBlock Text="Login"
+                           FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
+                           FontSize="36"
+                           TextAlignment="Center"
+                           Foreground="Black"
+                           Margin="0,8,0,8"/>
+
+                    <!-- Username -->
+                    <TextBox
+                        
+                            FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
+                            Background="Azure"
+                            CornerRadius="12"
+                            VerticalContentAlignment="Center"
+                            FontSize="40"
+                            Foreground="Black"
+                            TextAlignment="Center"
+                            MaxHeight="200"
+                            Height="75"
+    
+
+                        >
+                        <TextBox.Header>
+                            <TextBlock Text="Username"
+                                       FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
+                                       FontSize="20"
+                                       Foreground="Black"/>
+                        </TextBox.Header>
+                    </TextBox>
+
+                    <!-- Monthly Budget -->
+                    <TextBox
+                       
+                       
+                                FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
+                                Background="Azure"
+                                CornerRadius="12"
+                                VerticalContentAlignment="Center"
+                                FontSize="40"
+                                Foreground="Black"
+                                TextAlignment="Center"
+                                MaxHeight="200"
+                                Height="75"
+                                Margin="0,35,0,0">
+
+                        <TextBox.Header>
+                            <TextBlock Text="Enter Monthly Budget"
+                                           Foreground="Black"
+                                           FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
+                                           FontSize="20"/>
+
+                        </TextBox.Header>
+
+
+                    </TextBox>
+
+                    <!-- Submit -->
+                    <Button Content="Create Account"
+                  
+                            HorizontalAlignment="Center"
+                            Padding="20,10"
+                            FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
+                            FontSize="14"
+                            Background="Blue"
+                            Foreground="White"
+                            BorderBrush="DimGray"
+                            BorderThickness="2"
+                            Margin="0,50,0,0"
+                            Command="{Binding CreateAccountCommand}"/>
+                </StackPanel>
             </Border>
-
-            <TextBlock Text="The Username that you put does&#x0a;not exist as an account&#x0a;please create one"
-                       FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
-                       FontSize="18"
-                       Grid.Column="1"
-                       Grid.ColumnSpan="5"
-                       Grid.Row="6" Grid.RowSpan="3"
-                       Height="400" Width="700"
-                       TextAlignment="Center"
-                       Foreground="Black"        
-                    
-                       >
-                
-            </TextBlock>
-
-            <TextBlock Text="Login"
-                       FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
-                       FontSize="45"
-                       Grid.Column="2" Grid.ColumnSpan="3"
-                       Grid.Row="0" Grid.RowSpan="3"
-                       VerticalAlignment="Center"
-                       TextAlignment="Center"
-                       Foreground="Black"
-                       />
-
-            <!-- Enter Username -->
-            <TextBox
-
-                FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
-                Grid.Column="2" Grid.ColumnSpan="3"
-                Grid.Row="2" Grid.RowSpan="1"
-                Width="400" Height="100"
-                Background="Azure"
-                CornerRadius="15"
-               
-                VerticalContentAlignment="Center"
-                TextAlignment="Center"
-                FontSize="35" 
-               
-                Foreground="Black"
-                >
-              
-                
-
-                <TextBox.Header>
-                    <TextBlock Text="Username"
-                               Foreground="Black"
-                               FontSize="20"
-                               />
-                    
-                </TextBox.Header>
-
-               
-                
-            </TextBox>
-
-
-
-            <!-- Enter Budget -->
-            
-            
-            <!-- Submit -->
-
         </Grid>
-    </Grid>
-</Page>
+    </Page>

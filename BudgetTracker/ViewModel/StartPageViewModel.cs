@@ -1,6 +1,11 @@
-﻿using CommunityToolkit.Mvvm.Input;
+﻿using BudgetTracker.DataBase;
+using BudgetTracker.Model;
+using BudgetTracker.Service;
+using BudgetTracker.View;
 using CommunityToolkit.Mvvm.ComponentModel;
-
+using CommunityToolkit.Mvvm.Input;
+using Microsoft.UI.Xaml.Media.Animation;
+using Microsoft.UI.Xaml.Navigation;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,16 +14,13 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using BudgetTracker.View;
-using BudgetTracker.DataBase;
-using BudgetTracker.Service;
-using Microsoft.UI.Xaml.Navigation;
 
 
 namespace BudgetTracker.ViewModel
 {
     public partial class StartPageViewModel : INotifyPropertyChanged
     {
+
 
         // If there is no User or there is new user made
         public UserService UserService = new();
@@ -32,10 +34,9 @@ namespace BudgetTracker.ViewModel
             {
                 _username = value;
                 // nameof(_username)
-                OnPropertyChanged();   
+                OnPropertyChanged();
             }
         }
-
 
 
         public event PropertyChangedEventHandler? PropertyChanged;

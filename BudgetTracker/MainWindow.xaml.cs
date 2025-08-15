@@ -41,27 +41,27 @@ namespace BudgetTracker
 
 
 
-
+            // THIS SUCKS!
             // Window Size
-            IntPtr hwnd = WindowNative.GetWindowHandle(this);
-            WindowId windowId = Win32Interop.GetWindowIdFromWindow(hwnd);
-            AppWindow appWindow = AppWindow.GetFromWindowId(windowId);
+            //IntPtr hwnd = WindowNative.GetWindowHandle(this);
+            //WindowId windowId = Win32Interop.GetWindowIdFromWindow(hwnd);
+            //AppWindow appWindow = AppWindow.GetFromWindowId(windowId);
 
-            // Set default window size
-            appWindow.Resize(new Windows.Graphics.SizeInt32(1000, 1000));
+            //// Set default window size
+            //appWindow.Resize(new Windows.Graphics.SizeInt32(1000, 1000));
 
-            // Optional: Prevent resizing larger than 1000x1000
-            appWindow.Changed += (s, e) =>
-            {
-                var size = appWindow.Size;
-                if (size.Width > 1000 || size.Height > 1000)
-                {
-                    appWindow.Resize(new Windows.Graphics.SizeInt32(
-                        Math.Min(size.Width, 1000),
-                        Math.Min(size.Height, 1000)
-                    ));
-                }
-            };
+            //// Optional: Prevent resizing larger than 1000x1000
+            //appWindow.Changed += (s, e) =>
+            //{
+            //    var size = appWindow.Size;
+            //    if (size.Width > 1000 || size.Height > 1000)
+            //    {
+            //        appWindow.Resize(new Windows.Graphics.SizeInt32(
+            //            Math.Min(size.Width, 1000),
+            //            Math.Min(size.Height, 1000)
+            //        ));
+            //    }
+            //};
         }
         
     }

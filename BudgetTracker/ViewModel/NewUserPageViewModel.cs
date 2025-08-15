@@ -22,8 +22,7 @@ namespace BudgetTracker.ViewModel
 
 
 
-
-
+        
 
         // Create Account System
     }

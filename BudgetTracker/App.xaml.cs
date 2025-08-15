@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using BudgetTracker.DataBase;
+﻿using BudgetTracker.DataBase;
+using BudgetTracker.Model;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -12,6 +8,11 @@ using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 using Microsoft.UI.Xaml.Shapes;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
@@ -40,6 +41,8 @@ namespace BudgetTracker
             db.Database.EnsureCreated();
         }
 
+
+
         /// <summary>
         /// Invoked when the application is launched.
         /// </summary>
@@ -49,5 +52,6 @@ namespace BudgetTracker
             _window = new MainWindow();
             _window.Activate();
         }
+
     }
 }

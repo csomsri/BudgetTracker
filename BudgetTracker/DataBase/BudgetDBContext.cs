@@ -30,6 +30,8 @@ namespace BudgetTracker.DataBase
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<User>()
                 .HasOne(u => u.UserData)
                 .WithOne(d => d.User)
@@ -41,6 +43,9 @@ namespace BudgetTracker.DataBase
                 .WithOne(e => e.UserData)
                 .HasForeignKey(e => e.UserDataId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            // Test User 
+            
         }
          
        
