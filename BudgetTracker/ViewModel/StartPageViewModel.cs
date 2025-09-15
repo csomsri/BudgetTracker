@@ -39,15 +39,10 @@ namespace BudgetTracker.ViewModel
         }
 
 
-        public event PropertyChangedEventHandler? PropertyChanged;
 
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-        
 
-        
+
+
 
 
         // Go To Track
@@ -73,24 +68,24 @@ namespace BudgetTracker.ViewModel
         {
             //GoToTrackCommand = new RelayCommand(OnTrack);
             //GoToAnalyzeCommand = new RelayCommand(OnAnalyze);
-            GoToNextPageCommand = new RelayCommand<string>(ExecuteLogin);
-            
+            GoToNextPageCommand = new AsyncRelayCommand<string>(ExecuteLoginAsync);
+
         }
 
-  
+
 
         public event Action? RequestNavigationToNewUser;
-        private void ExecuteLogin(string? targetPage)
+        private async Task ExecuteLoginAsync(string? targetPage)
         {
-
-            if (string.IsNullOrEmpty(Username) || string.IsNullOrWhiteSpace(targetPage)) 
+            var name = Username?.Trim();
+            if (string.IsNullOrEmpty(name) || string.IsNullOrWhiteSpace(name))
             {
                 return;
             }
 
-           
 
-            var user = UserService.GetUserByName(Username);
+
+            var user = await UserService.GetByNameAsync(name);
             if (user != null)
             {
                 if (targetPage == "TrackPage")
@@ -112,5 +107,11 @@ namespace BudgetTracker.ViewModel
 
 
 
+    
+
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
+            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }

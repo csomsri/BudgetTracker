@@ -5,10 +5,15 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:BudgetTracker.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:conv="using:BudgetTracker.Converters"
     mc:Ignorable="d">
+
+    <Page.Resources>
+        <conv:DecimalToDoubleConverter x:Key="DecimalToDoubleConverter"/>
+    </Page.Resources>
     
-        <!-- Outer layout -->
+    <!-- Outer layout -->
         <Grid Background="LightBlue" Padding="24">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -19,21 +24,21 @@
 
             <!-- Back -->
             <Button
-            x:Name="ExitButton"
-            Command="{Binding GoBackCommand}"
-            Content="Back"
-            Width="120"
-            Height="44"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
-            FontSize="12"
-            Background="DarkRed"
-            BorderBrush="DimGray"
-            BorderThickness="2"
-            Foreground="Gold"/>
+                    x:Name="ExitButton"
+                    Command="{Binding GoBackCommand}"
+                    Content="Back"
+                    Width="120"
+                    Height="44"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
+                    FontSize="12"
+                    Background="DarkRed"
+                    BorderBrush="DimGray"
+                    BorderThickness="2"
+                    Foreground="Gold"/>
 
-            <!-- Centered card -->
+        <!-- Centered card -->
         <Border Grid.Row="1"
                     Grid.RowSpan="6"
                     MaxWidth="720"
@@ -65,7 +70,7 @@
 
                     <!-- Username -->
                     <TextBox
-                        
+                            Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
                             Background="Azure"
                             CornerRadius="12"
@@ -87,32 +92,32 @@
                     </TextBox>
 
                     <!-- Monthly Budget -->
-                    <TextBox
+                    <NumberBox
                        
-                       
-                                FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
-                                Background="Azure"
-                                CornerRadius="12"
-                                VerticalContentAlignment="Center"
-                                FontSize="40"
-                                Foreground="Black"
-                                TextAlignment="Center"
-                                MaxHeight="200"
-                                Height="75"
-                                Margin="0,35,0,0">
+                                    Value="{Binding MonthlyBudget, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource DecimalToDoubleConverter}}"
+                                    FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
+                                    Background="Azure"
+                                    CornerRadius="12"
+                                    VerticalContentAlignment="Center"
+                                    FontSize="40"
+                                    Foreground="Black"
+                              
+                                    MaxHeight="200"
+                                    Height="75"
+                                    Margin="0,35,0,0">
 
-                        <TextBox.Header>
+                        <NumberBox.Header>
                             <TextBlock Text="Enter Monthly Budget"
-                                           Foreground="Black"
-                                           FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
-                                           FontSize="20"/>
+                                               Foreground="Black"
+                                               FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
+                                               FontSize="20"/>
 
-                        </TextBox.Header>
+                        </NumberBox.Header>
 
 
-                    </TextBox>
+                    </NumberBox>
 
-                    <!-- Submit -->
+                <!-- Submit -->
                     <Button Content="Create Account"
                   
                             HorizontalAlignment="Center"

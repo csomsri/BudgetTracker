@@ -18,7 +18,7 @@ namespace BudgetTracker.ViewModel
         public MainWindowViewModel()
         {
 #if DEBUG
-            using var db = new BudgetDBContext();
+            using var db = new BudgetDBContext(); 
             db.Database.EnsureCreated();
 
             if (!db.User.Any())

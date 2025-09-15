@@ -8,152 +8,144 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid x:Name="TrackGrid">
-        <!-- Image Background here -->
-        <Image Source="/Assets/BankImage.png"
-               Stretch="Fill"/>
-        <Grid Background="Transparent">
+    <!-- Root: background image fills the page -->
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/BankImage.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+
+        <!-- Overlay for content -->
+        <Grid>
+            <!-- Two-row layout: header (Back), body (form card) -->
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            <Border Grid.Column="0" Grid.ColumnSpan="7"
-                    Grid.Row="0" Grid.RowSpan="7"
-                    Height="800" Width="800"
-                    Opacity="1">
-                <Border.Background>
-                    <ImageBrush ImageSource="/Assets/BankOverView.png"/>
-                </Border.Background>
-
-            </Border>
-
-            <!--Display Budget-->
-            <Border Grid.Column="2" Grid.ColumnSpan="3"
-                    Grid.Row="1">
-                <TextBlock 
+            <!-- Back button in header -->
+            <Grid Grid.Row="0">
+                <Button
+                    x:Name="ExitButton"
+                    Command="{Binding GoBackCommand}"
+                    Width="100"
+                    Height="50"
+                    Margin="16"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
                     FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
-                    Text=" Text {Binding userBudget}">
-                    
-                </TextBlock>
-            </Border>
-            
-            <!--Category-->
-            <!-- Put this : SelectionChanged="ComboBoxChanged"-->
-            <Border Grid.Column="2" Grid.ColumnSpan="3"
-                    Grid.Row="2">
-                <ComboBox
-                    FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
-                    PlaceholderText="Select a Category"
-                    
-                    Width="415"
-                    >
-                    <ComboBoxItem Content="Food (Eating Out)"/>
-                    <ComboBoxItem Content="Food (Groceries)"/>
-                    <ComboBoxItem Content="House Supplies"/>
-                    <ComboBoxItem Content="Entertainment"/>
-                    <ComboBoxItem Content="Education"/>
-                    <ComboBoxItem Content="Others"/>
+                    Content="Back"
+                    FontSize="10"
+                    Background="DarkRed"
+                    BorderBrush="DimGray"
+                    BorderThickness="2"
+                    Foreground="Gold"/>
+            </Grid>
 
-                </ComboBox>
-                
-                
-            </Border>
-            
-            
+            <!-- Centering grid for the card -->
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-            <!--MoneySpent-->
-            <Border Grid.Column="2" Grid.ColumnSpan="3"
-                    Grid.Row="3">
-                <TextBox
-                    FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
-                    PlaceholderText="00.00"
-                    FontSize="50"
-                    TextAlignment="Center"
-                    Height="150"
-                    Width="415"
-                    >
-                    <TextBox.Header>
-                        <TextBlock FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
-                                   Text="Enter The Price"
-                                   TextAlignment="Left"
-                                   FontSize="15"
-                                   Width="415"
-                                   Foreground="Gold"/>
-                    </TextBox.Header>
-                </TextBox>
-            </Border>
+                <!-- Card: centered, fixed width, background image -->
+                <Border Grid.Column="1"
+                        Margin="24"
+                        Padding="24"
+                        CornerRadius="16"
+                        BorderBrush="#66000000"
+                        BorderThickness="1">
 
-            <!--Date-->
-            <!-- DateChanged="DatePicked" Add this -->
-            <Border Grid.Column="2" Grid.ColumnSpan="3"
-                    Grid.Row="4">
-                <CalendarDatePicker
-                    x:Name="MyDatePicker"
-                    Width="415"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    PlaceholderText="Select a date"
-                    FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
-                >
-                    <CalendarDatePicker.Header>
-                        <TextBlock Text="Purchase Date"
+                    <Border.Background>
+                        <!-- Overlay your panel art -->
+                        <ImageBrush ImageSource="/Assets/BankOverView.png" Stretch="Fill" AlignmentX="Center" AlignmentY="Center" />
+                    </Border.Background>
+
+                    <!-- Form layout -->
+                    <Grid MaxWidth="1200" MinWidth="850" MaxHeight="700" RowSpacing="5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>   <!-- Budget display -->
+                            
+                            <RowDefinition Height="*"/>   <!-- Category -->
+
+                            <RowDefinition Height="*"/>  <!-- Money -->
+
+                            <RowDefinition Height="*"/>  <!-- Date -->
+
+                            <RowDefinition Height="*"/>  <!-- Submit -->
+                            
+                        </Grid.RowDefinitions>
+
+                        <!-- Budget -->
+                        <TextBlock Grid.Row="0"
+                                   HorizontalAlignment="Center"
+                                   FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
+                                   Text="Hi {Binding UserBudget}"
                                    Foreground="Gold"
-                                   FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"/> 
-                    </CalendarDatePicker.Header>
-                </CalendarDatePicker>
-            </Border>
-            
-            <!--Submit Button-->
-            <Button 
-                Content="Submit"
-                FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
-                Grid.Row="5"
-                Grid.Column="2"
-                Grid.ColumnSpan="3"
-                Width="410"
-                Background="DarkRed"
-                BorderBrush="DimGray"
-                BorderThickness="2"
-                Foreground="Gold"
-                >
-               
-            </Button>
+                                   FontSize="18"
+                                   TextWrapping="Wrap"
+                                   
+                                   />
 
-            <!--Exit Button (X)-->
-            <Button
-                x:Name="ExitButton"
-                Command="{Binding GoBackCommand}"
-                Grid.Row="0"
-                Grid.Column="0"
-                Width="100"
-                Height="50"
-                FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
-                Content="Back"
-                VerticalAlignment="Top"
-                FontSize="10"
-                Background="DarkRed"
-                BorderBrush="DimGray"
-                BorderThickness="2"
-                Foreground="Gold"
-                >
-            </Button>
-            
+                        <!-- Category -->
+                        <ComboBox Grid.Row="1"
+                                  Width="415"
+                                  HorizontalAlignment="Center"
+                                  FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
+                                  PlaceholderText="Select a Category">
+                            <ComboBoxItem Content="Food (Eating Out)"/>
+                            <ComboBoxItem Content="Food (Groceries)"/>
+                            <ComboBoxItem Content="House Supplies"/>
+                            <ComboBoxItem Content="Entertainment"/>
+                            <ComboBoxItem Content="Education"/>
+                            <ComboBoxItem Content="Others"/>
+                        </ComboBox>
+
+                        <!-- Money Spent -->
+                        <TextBox Grid.Row="2"
+                                 Width="415"
+                                 Height="150"
+                                 HorizontalAlignment="Center"
+                                 FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
+                                 PlaceholderText="00.00"
+                                 FontSize="50"
+                                 TextAlignment="Center">
+                            <TextBox.Header>
+                                <TextBlock FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
+                                           Text="Enter The Price"
+                                           Foreground="Gold"
+                                           FontSize="15"/>
+                            </TextBox.Header>
+                        </TextBox>
+
+                        <!-- Date -->
+                        <CalendarDatePicker Grid.Row="3"
+                                            x:Name="MyDatePicker"
+                                            Width="415"
+                                            HorizontalAlignment="Center"
+                                            PlaceholderText="Select a date"
+                                            FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P">
+                            <CalendarDatePicker.Header>
+                                <TextBlock Text="Purchase Date"
+                                           Foreground="Gold"
+                                           FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"/>
+                            </CalendarDatePicker.Header>
+                        </CalendarDatePicker>
+
+                        <!-- Submit -->
+                        <Button Grid.Row="4"
+                                Content="Submit"
+                                Width="415"
+                                HorizontalAlignment="Center"
+                                FontFamily="/Assets/Fonts/PressStart2P-Regular.ttf#Press Start 2P"
+                                Background="DarkRed"
+                                BorderBrush="DimGray"
+                                BorderThickness="2"
+                                Foreground="Gold"/>
+                    </Grid>
+                </Border>
+            </Grid>
         </Grid>
     </Grid>
 </Page>

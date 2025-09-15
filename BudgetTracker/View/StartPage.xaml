@@ -62,7 +62,7 @@
                 </Border>
 
                 <Button x:Name="analyzeButton"  
-                        Command="{x:Bind ViewModel.GoToNextPageCommand}"
+                        Command="{Binding GoToNextPageCommand}"
                         CommandParameter="AnalyzePage"
                         Grid.Column="3"
                         Grid.RowSpan="3"
@@ -102,7 +102,7 @@
 
                 <Button 
                     x:Name="trackButton"
-                    Command="{x:Bind ViewModel.GoToNextPageCommand}"
+                    Command="{Binding GoToNextPageCommand}"
                     CommandParameter="TrackPage"
                     Grid.Column="1"
                     Grid.RowSpan="3"
